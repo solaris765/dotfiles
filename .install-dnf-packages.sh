@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Utils
-sudo dnf install vim curl git jq
+sudo dnf install vim curl git jq seahorse Thunar solaar wireplumber NetworkManager
 
 # Terminal
 sudo dnf install foot tmux
@@ -13,6 +13,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 # hyprland
 sudo dnf install hyprcursor.x86_64 hyprcursor-devel.x86_64 hypridle.x86_64 hyprland.x86_64 hyprland-devel.x86_64 hyprland-protocols-devel.noarch hyprlang.x86_64 hyprlang-devel.x86_64 hyprlock.x86_64 hyprpicker.x86_64 hyprutils.x86_64 hyprutils-devel.x86_64 hyprwayland-scanner-devel.x86_64 xdg-desktop-portal-hyprland.x86_64 
+sudo dnf install wofi waybar
 
 # Helper
 ghRepoCloneLatestRelease ()
@@ -134,3 +135,9 @@ sudo usermod -aG docker $USER
 
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
+
+
+#gcm
+curl -L https://aka.ms/gcm/linux-install-source.sh | sh
+git-credential-manager configure
+git config --global credential.credentialStore secretservice

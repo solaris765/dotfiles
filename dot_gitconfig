@@ -1,0 +1,10 @@
+[user]
+	name = Mason Rhodes
+	email = mason@lifemd.com
+[credential]
+	credentialStore = secretservice
+	helper = /usr/local/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[push]
+	autoSetupRemote = true
