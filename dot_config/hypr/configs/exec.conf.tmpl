@@ -10,9 +10,9 @@ exec-once=sleep 1 & dbus-update-activation-environment --systemd WAYLAND_DISPLAY
 exec-once=gnome-keyring-daemon --start --components=secrets
 exec-once=/usr/libexec/kf6/polkit-kde-authentication-agent-1
 
-exec-once=/home/mason/.config/hypr/idle.sh
+exec-once={{ .chezmoi.homeDir }}/.config/hypr/idle.sh
 exec=waybar
 exec-once=solaar --window=hide
 exec-once=nm-applet --indicator
-exec-once=/home/mason/.config/hypr/configs/delayed_start_once.sh > /home/mason/.config/hypr/logs/delayed_start_once.log 2>&1
-exec=/home/mason/.config/hypr/configs/delayed_start.sh > /home/mason/.config/hypr/logs/delayed_start.log 2>&1
+exec-once={{ .chezmoi.homeDir }}/.config/hypr/configs/delayed_start_once.sh > {{ .chezmoi.homeDir }}/.config/hypr/logs/delayed_start_once.log 2>&1
+exec={{ .chezmoi.homeDir }}/.config/hypr/configs/delayed_start.sh > {{ .chezmoi.homeDir }}/.config/hypr/logs/delayed_start.log 2>&1

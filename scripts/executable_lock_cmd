@@ -1,7 +1,7 @@
 #!/bin/bash
 hyprlock
 # swaylock \
-#   --image "/home/mason/Pictures/forrest.png" \
+#   --image "$HOME/Pictures/forrest.png" \
 #   --clock \
 #   --indicator \
 #   --indicator-radius 100 \

@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-cd /home/mason/repos/lifemd
+cd $HOME/repos/lifemd
 
 # if not on main branch, checkout main
 if [[ $(git branch --show-current) != "main" ]]; then
