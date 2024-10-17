@@ -46,3 +46,6 @@ unzip $filename
 rm $filename
 sudo mv bw /usr/local/bin/bw
 sudo chmod +x /usr/local/bin/bw
+
+export BW_SESSION=$(bw login $BITWARDEN_EMAIL --raw)
+bw unlock
