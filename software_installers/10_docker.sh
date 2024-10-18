@@ -9,7 +9,7 @@ if ! command -v docker &> /dev/null; then
     sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     sudo systemctl start docker
 
-    sudo groupadd docker
+    sudo groupadd docker || true
     sudo usermod -aG docker $USER
 
     sudo systemctl enable docker.service
