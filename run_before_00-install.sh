@@ -1,8 +1,13 @@
 #!/bin/sh
 
-if ! command -v rbw &> /dev/null; then  
-  sudo dnf install -y rbw
+if ! command -v rbw &> /dev/null; then
+    sudo dnf install -y rbw
 fi
 
-rbw config set email mrhodesdev@gmail.com
-rbw login
+rbw unlocked
+exit_status=$?
+# Determine status and store result
+if [ $exit_status -eq 1 ]; then
+    rbw config set email mrhodesdev@gmail.com
+    rbw login
+fi

@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Get the directory of the script
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# {{ $dir := joinPath .chezmoi.sourceDir "software_installers" }}
+# File hashes:
+# {{ range (glob (joinPath $dir "**/*")) }}
+# {{ base . }}: {{ include . | sha256sum }}
+# {{ end }}
+
+CHEZMOI_ROOT=$(chezmoi source-path)
+cd $CHEZMOI_ROOT
 
 # Directory containing the installer scripts
-INSTALLER_DIR="$SCRIPT_DIR/software_installers"
+INSTALLER_DIR="software_installers"
 
 # Directory for log files
-LOG_DIR="$SCRIPT_DIR/.software_installer_logs"
+LOG_DIR=".software_installer_logs"
 
 # Create log directory if it doesn't exist
 mkdir -p "$LOG_DIR"
@@ -29,13 +35,16 @@ spinner() {
     local spin='-\|/'
     local i=0
     while kill -0 $pid 2>/dev/null; do
-        i=$(( (i+1) % 4 ))
-        printf "\r%-30s %c" "$operation" "${spin:$i:1}"
+        if sudo -n true 2>/dev/null; then
+            i=$(( (i+1) % 4 ))
+            printf "\r%-30s %c" "$operation" "${spin:$i:1}"
+        else
+            printf "\r%-30s %s" "$operation" "Waiting for sudo..."
+        fi
         sleep 0.1
     done
     printf "\r%-30s" "" # Erase the line
 }
-
 
 # Iterate over numbered scripts
 for file in "$INSTALLER_DIR"/[0-9][0-9]_*.sh; do
