@@ -35,3 +35,5 @@
 #         fi
 #     done
 # fi
+
+source $HOME/.keychain/$HOSTNAME-sh
