@@ -11,8 +11,8 @@ if ! command -v brave-browser &> /dev/null; then
     echo "### Installing bitwarden browser plugin"
     BITWARDEN_ID=nngceckbapebfimnlniiiahkandclblb
     EXTENSIONS_PATH=/opt/brave.com/brave/extensions
-    mkdir -p $EXTENSIONS_PATH
-    echo '{ "external_update_url": "https://clients2.google.com/service/update2/crx" }' > "${EXTENSIONS_PATH}/${BITWARDEN_ID}.json"
+    sudo mkdir -p $EXTENSIONS_PATH
+    sudo echo '{ "external_update_url": "https://clients2.google.com/service/update2/crx" }' > "${EXTENSIONS_PATH}/${BITWARDEN_ID}.json"
 
     sudo update-alternatives --set x-www-browser $(which brave-browser)
 fi
