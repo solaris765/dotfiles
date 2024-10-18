@@ -36,6 +36,7 @@ download_and_extract_latest_release() {
     
     if [ $? -eq 0 ]; then
         echo "Extraction complete. Files are in $extract_dir"
+        cd $extract_dir
         # Optionally remove the tarball
         rm "$filename"
         echo "Removed $filename"
