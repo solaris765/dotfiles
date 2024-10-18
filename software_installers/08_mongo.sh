@@ -53,7 +53,7 @@ enabled=1
 gpgkey=https://pgp.mongodb.com/server-8.0.asc
 EOF'
 
-    sudo dnf install -y -y mongodb-org
+    sudo dnf install -y -y mongodb-org mongodb-mongosh-shared-openssl3
     sudo systemctl start mongod
     sudo systemctl enable mongod
     mongosh --eval "rs.initiate({_id: \"rs0\",version: 1,members: [{ _id: 0, host : \"localhost:27017\" }]})"
