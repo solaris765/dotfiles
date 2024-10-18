@@ -11,7 +11,7 @@ if ! command -v swww &> /dev/null; then
     ## swww
     echo "  SWWW"
     download_and_extract_latest_release LGFae swww
-    sudo dnf install -y lz4 rust
+    sudo dnf install -y lz4 rust cargo
     cargo build --release
     ln -s $HOME/.git-software/swww/target/release/swww $HOME/.local/bin/swww
     ln -s $HOME/.git-software/swww/target/release/swww-daemon $HOME/.local/bin/swww-daemon
