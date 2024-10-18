@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-source ./__helpers.sh`
+source ./__helpers.sh
 
 echo "Installing github software builds"
 mkdir -p ~/.git-software
