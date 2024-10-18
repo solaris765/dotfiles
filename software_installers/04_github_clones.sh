@@ -10,7 +10,7 @@ cd ~/.git-software
 if ! command -v swww &> /dev/null; then
     ## swww
     echo "  SWWW"
-    extract_dir=download_and_extract_latest_release LGFae swww
+    extract_dir=$(download_and_extract_latest_release "LGFae" "swww")
     cd $extract_dir
     sudo dnf install -y lz4-devel rust cargo
     cargo build --release

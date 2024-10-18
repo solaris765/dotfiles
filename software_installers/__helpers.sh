@@ -31,10 +31,9 @@ download_and_extract_latest_release() {
     tar -xzf "$filename" -C "$extract_dir" --strip-components 1
     
     if [ $? -eq 0 ]; then
-        echo "Extraction complete. Files are in $extract_dir"
         # Optionally remove the tarball
         rm "$filename"
-        echo $extract_dir
+        echo "$extract_dir"
     else
         echo "Error: Extraction failed."
         exit 1
