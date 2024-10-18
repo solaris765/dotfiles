@@ -1,0 +1,154 @@
+{
+    "mainBar": {
+        "layer": "top",
+        "height": 30,
+        "spacing": 4,
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "clock",
+            "custom/recorder"
+        ],
+        "modules-right": [
+            "custom/media",
+            "idle_inhibitor",
+            "wireplumber",
+            "network",
+            "cpu",
+            "memory",
+            "temperature",
+            "backlight",
+            "keyboard-state",
+            "battery",
+            "custom/headsetcontrol_battery",
+            "tray"
+        ],
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "on-scroll-up": "hyprctl dispatch workspace e+1",
+            "on-scroll-down": "hyprctl dispatch workspace e-1"
+        },
+        "hyprland/window": {
+            "max-length": 200,
+            "separate-outputs": true
+        },
+        "custom/recorder": {
+            "format": "",
+            "return-type": "json",
+            "interval": 1,
+            "exec": "echo '{\"class\": \"recording\"}'",
+            "exec-if": "pgrep wf-recorder",
+            "on-click": "record"
+        },
+        "keyboard-state": {
+            "numlock": true,
+            "capslock": true,
+            "format": "{name} {icon} ",
+            "format-icons": {
+                "locked": "",
+                "unlocked": ""
+            }
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        "tray": {
+            "spacing": 10
+        },
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}"
+        },
+        "cpu": {
+            "format": "{usage}% ",
+            "tooltip": false
+        },
+        "memory": {
+            "format": "{}% "
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{temperatureC}°C {icon}",
+            "format-icons": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "backlight": {
+            "format": "{percent}% {icon}",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "battery": {
+            "bat": "hidpp_battery_0",
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% ",
+            "format-plugged": "{capacity}% ",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "custom/headsetcontrol_battery": {
+            "return-type": "json",
+            "exec": "headsetcontrol-json",
+            "interval": 2
+        },
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "tooltip-format": "{ifname} via {gwaddr} ",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "Disconnected ⚠",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}",
+            "on-middle-click": "nm-connection-editor"
+        },
+        "wireplumber": {
+            "format": "{volume}% {icon}",
+            "format-muted": "",
+            "on-click": "helvum",
+            "on-right-click": "/home/mason/.config/wofi/change-default-audio-device.js WofiListAudioDevices",
+            "format-icons": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "custom/media": {
+            "format": "{icon} {}",
+            "return-type": "json",
+            "max-length": 40,
+            "format-icons": {
+                "spotify": "",
+                "default": "🎜"
+            },
+            "escape": true,
+            "exec": "whatsong"
+        }
+    }
+}

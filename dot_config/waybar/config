@@ -1,0 +1,167 @@
+[
+  {
+    "backlight": {
+      "format": "{percent}% {icon}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "battery": {
+      "bat": "hidpp_battery_0",
+      "format": "{capacity}% {icon}",
+      "format-alt": "{time} {icon}",
+      "format-charging": "{capacity}% ",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "format-plugged": "{capacity}% ",
+      "states": {
+        "critical": 20,
+        "good": 95,
+        "warning": 30
+      }
+    },
+    "custom/dunst": {
+      "exec": "~/.config/waybar/scripts/dunst.sh",
+      "on-click": "dunstctl set-paused toggle",
+      "restart-interval": 1
+    },
+    "clock": {
+      "format": "{:%I:%M %p}",
+      "format-alt": "{:%Y-%m-%d}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false
+    },
+    "custom/headsetcontrol_battery": {
+      "exec": "/home/mason/scripts/headsetcontrol-json",
+      "interval": 2,
+      "return-type": "json"
+    },
+    "custom/media": {
+      "escape": true,
+      "exec": "/home/mason/scripts/whatsong",
+      "format": "{icon} {}",
+      "interval": 10,
+      "format-icons": {
+        "default": "🎜",
+        "spotify": ""
+      },
+      "max-length": 40,
+      "return-type": "json"
+    },
+    "custom/pritunl": {
+      "exec": "pritunl-status",
+      "format": "{icon} {status}",
+      "interval": 5,
+      "return-type": "json"
+    },
+    "custom/recorder": {
+      "exec": "echo '{\"class\": \"recording\"}'",
+      "exec-if": "pgrep wf-recorder",
+      "format": "",
+      "interval": 1,
+      "on-click": "record",
+      "return-type": "json"
+    },
+    "height": 30,
+    "hyprland/window": {
+      "max-length": 200,
+      "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+      "on-scroll-up": "hyprctl dispatch workspace e+1"
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "keyboard-state": {
+      "capslock": true,
+      "format": "{name} {icon} ",
+      "format-icons": {
+        "locked": "",
+        "unlocked": ""
+      },
+      "numlock": true
+    },
+    "layer": "top",
+    "memory": {
+      "format": "{}% "
+    },
+    "modules-center": [
+      "clock",
+      "custom/recorder"
+    ],
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "custom/media",
+      "idle_inhibitor",
+      "wireplumber",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "backlight",
+      "keyboard-state",
+      "battery",
+      "custom/headsetcontrol_battery",
+      "tray"
+    ],
+    "network": {
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+      "format-disconnected": "Disconnected ⚠",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "on-middle-click": "nm-connection-editor",
+      "tooltip-format": "{ifname} via {gwaddr} "
+    },
+    "spacing": 4,
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tray": {
+      "spacing": 10
+    },
+    "wireplumber": {
+      "format": "{volume}% {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "format-muted": "",
+      "on-click": "helvum",
+      "on-right-click": "/home/mason/.config/wofi/change-default-audio-device.js WofiListAudioDevices"
+    }
+  }
+]
