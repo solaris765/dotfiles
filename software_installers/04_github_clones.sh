@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
-
-source ./__helpers.sh
+script_dir="$(dirname "$(readlink -f "$0")")"
+source $script_dir/__helpers.sh
 
 echo "Installing github software builds"
 mkdir -p ~/.git-software
