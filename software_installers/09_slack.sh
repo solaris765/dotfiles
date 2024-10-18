@@ -1,11 +1,16 @@
 #!/bin/sh
 set -eu
 
-#slack 
+#slack
 if ! command -v slack &> /dev/null; then
     echo "Installing Slack"
-    curl "https://slack.com/downloads/instructions/linux?ddl=1&build=rpm" --output ~/Downloads/slack.rpm
-    sudo dnf install -y ~/Downloads/slack.rpm
+    filename="~/Downloads/slack.rpm"
+    
+    if curl --silent -o "${filename}" -L "https://slack.com/downloads/instructions/linux?ddl=1&build=rpm"; then
+        sudo dnf install -y ~/Downloads/slack.rpm
+    else
+        exit 1
+    fi
 fi
 
 exit 0
