@@ -1,7 +1,5 @@
 #!/bin/bash
 
-bw_auth
-
 MONGODB_COMPASS_CONNECTIONS_FOLDER_ID=20180d61-ed98-4fed-8bcb-b16401212e6b
 
 entries=$(bw list items --folderid $MONGODB_COMPASS_CONNECTIONS_FOLDER_ID)
