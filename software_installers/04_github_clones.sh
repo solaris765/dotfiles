@@ -10,7 +10,7 @@ cd ~/.git-software
 if ! command -v swww &> /dev/null; then
     ## swww
     echo "  SWWW"
-    ghRepoCloneLatestRelease LGFae/swww
+    download_and_extract_latest_release LGFae swww
     cd swww
     cargo build --release
     ln -s $HOME/.git-software/swww/target/release/swww $HOME/.local/bin/swww
