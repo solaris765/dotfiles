@@ -15,8 +15,12 @@ echo "$attachments" | jq -c '.' | while read attachment; do
     attachment_filename=$(echo $attachment | jq -r '.name')
     if [[ "${attachment_filename}" == *.pub ]]; then
         echo $attachment | jq -r '.value' > "$ATTACHMENT_DIR/${attachment_filename}"
+
+        sudo chmod 644 "$ATTACHMENT_DIR/${attachment_filename}"
     else
         echo $attachment | jq -r '.value' | base64 -d > "$ATTACHMENT_DIR/${attachment_filename}"
+
+        sudo chmod 600 "$ATTACHMENT_DIR/${attachment_filename}"
     fi
     
     echo "Downloaded: ${attachment_filename}"
