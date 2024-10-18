@@ -1,0 +1,19 @@
+[Default Applications]
+application/toml=code.desktop
+application/x-shellscript=code.desktop
+text/plain=code.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+video/mp4=org.gnome.gThumb.desktop
+application/x-compressed-tar=thunar.desktop
+
+[Added Associations]
+application/toml=code.desktop;
+application/x-shellscript=code.desktop;
+text/plain=code.desktop;
+video/mp4=qimgv.desktop;org.gnome.gThumb.desktop;
+application/x-compressed-tar=thunar.desktop;
+application/x-desktop=code.desktop;
