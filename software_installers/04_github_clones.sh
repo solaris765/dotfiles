@@ -10,12 +10,13 @@ cd ~/.git-software
 if ! command -v swww &> /dev/null; then
     ## swww
     echo "  SWWW"
-    download_and_extract_latest_release LGFae swww
+    extract_dir=download_and_extract_latest_release LGFae swww
+    cd $extract_dir
     sudo dnf install -y lz4-devel rust cargo
     cargo build --release
     mkdir -p $HOME/.local/bin
-    mv $HOME/.git-software/swww/target/release/swww $HOME/.local/bin/swww
-    mv $HOME/.git-software/swww/target/release/swww-daemon $HOME/.local/bin/swww-daemon
+    ln -s $HOME/.git-software/$extract_dir/target/release/swww $HOME/.local/bin/swww
+    ln -s $HOME/.git-software/$extract_dir/target/release/swww-daemon $HOME/.local/bin/swww-daemon
     cd ..
 fi
 
