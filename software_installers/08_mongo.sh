@@ -58,6 +58,10 @@ EOF'
     sudo systemctl start mongod
     sudo systemctl enable mongod
     mongosh --eval "rs.initiate({_id: \"rs0\",version: 1,members: [{ _id: 0, host : \"localhost:27017\" }]})"
+
+    wget https://downloads.mongodb.com/compass/mongodb-compass-1.44.5.x86_64.rpm
+    sudo yum install -y mongodb-compass-1.44.5.x86_64.rpm
+    rm mongodb-compass-1.44.5.x86_64.rpm
 fi
 
 exit 0
