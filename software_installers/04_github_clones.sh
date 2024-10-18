@@ -14,8 +14,8 @@ if ! command -v swww &> /dev/null; then
     sudo dnf install -y lz4-devel rust cargo
     cargo build --release
     mkdir -p $HOME/.local/bin
-    ln -s $HOME/.git-software/swww/target/release/swww $HOME/.local/bin/swww
-    ln -s $HOME/.git-software/swww/target/release/swww-daemon $HOME/.local/bin/swww-daemon
+    mv $HOME/.git-software/swww/target/release/swww $HOME/.local/bin/swww
+    mv $HOME/.git-software/swww/target/release/swww-daemon $HOME/.local/bin/swww-daemon
     cd ..
 fi
 
