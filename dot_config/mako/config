@@ -1,0 +1,37 @@
+max-visible=5
+sort=-time
+
+layer=top
+anchor=top-right
+
+font=Rubik 10
+background-color=#101c32FF
+text-color=#ffdea3
+width=300
+height=100
+margin=10
+padding=5
+border-size=1
+border-color=#cc7d4b
+border-radius=0
+progress-color=over #ab4c51
+icons=true
+max-icon-size=64
+
+markup=true
+actions=true
+format=<b>%s</b>\n%b
+default-timeout=0
+ignore-timeout=false
+
+
+[urgency=low]
+background-color=#101c32FF
+border-color=#cc7d4b
+text-color=#b18498
+
+[urgency=high]
+background-color=#101c32FF
+border-color=#cc7d4b
+text-color=#33a295
+
